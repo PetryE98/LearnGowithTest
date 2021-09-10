@@ -27,8 +27,20 @@ func SumAll(numbersToSum ...[]int) []int {
 	lengthOFNumbers := len(numbersToSum)
 	sums := make([]int, lengthOFNumbers)
 
-	for i, number := range numbersToSum {
-		sums[i] = Sumslice(number)
+	for _, number := range numbersToSum {
+		sums = append(sums, Sumslice(number))
+	}
+	return sums
+
+}
+
+func SumAllTails(numbersToSum ...[]int) []int {
+
+	var sums []int
+	for _, numbers := range numbersToSum {
+
+		tail := numbers[1:]
+		sums = append(sums, Sumslice(tail))
 	}
 	return sums
 
